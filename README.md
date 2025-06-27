@@ -2,4 +2,5 @@
 <p>Ngagoler movie adalah wesite yang menyediakan layanan nonton bioskop yang terkini</p>
 
 #### Contoh website
-![Website](https://github.com/user-attachments/assets/c7d2bfa0-96a6-403d-9197-2e2d6fc1ae54)
+![Screenshot (410)](https://github.com/user-attachments/assets/ca934888-0767-4120-b681-9b11aff7c962)
+
