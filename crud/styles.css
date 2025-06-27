@@ -1,0 +1,506 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: white;
+  line-height: 1.6;
+}
+
+/* Header */
+.header {
+  position: sticky;
+  top: 1rem;
+  z-index: 50;
+  background-color: rgba(38, 38, 38, 0.3);
+  backdrop-filter: blur(10px);
+  border-radius: 50px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.nav-left a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.logo-text {
+  margin-left: 10px;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  transition: color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  color: #ccc;
+}
+
+.btn-login,
+.btn-register {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.btn-login {
+  background-color: transparent;
+  border: 1px solid #333;
+}
+
+.btn-login:hover {
+  background-color: #1f1f1f;
+  border-color: #555;
+}
+
+.btn-register {
+  background: linear-gradient(to top left, #2563eb, #7c3aed);
+  color: white;
+}
+
+.btn-register:hover {
+  background: linear-gradient(to top left, #7c3aed, #2563eb);
+  transform: translateY(-1px);
+}
+
+/* Movie Detail Hero Section */
+.movie-detail-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 0;
+}
+
+.movie-detail-hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  background: url("https://preline.co/assets/svg/examples/polygon-bg-element.svg")
+    no-repeat top center;
+  background-size: cover;
+  z-index: -1;
+  mix-blend-mode: color-burn;
+  opacity: 0.5;
+}
+
+.movie-detail-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 2rem;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover {
+  color: white;
+}
+
+/* Movie Content */
+.movie-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 768px) {
+  .movie-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+.movie-poster {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  aspect-ratio: 2/3;
+  background-color: #222;
+}
+
+.movie-poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.movie-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  background: linear-gradient(to top left, #60a5fa, #c084fc);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+@media (max-width: 768px) {
+  .movie-title {
+    font-size: 2rem;
+  }
+}
+
+.movie-metadata {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.genre-tag {
+  padding: 0.375rem 0.75rem;
+  background-color: #222;
+  color: white;
+  border: 1px solid #333;
+  border-radius: 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.duration,
+.year {
+  color: #aaa;
+  font-size: 0.875rem;
+}
+
+.movie-description h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.movie-description p {
+  color: #aaa;
+  line-height: 1.6;
+}
+
+.movie-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-watch {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(to top left, #2563eb, #7c3aed);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-watch:hover {
+  background: linear-gradient(to top left, #7c3aed, #2563eb);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.btn-trailer {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  color: white;
+  padding: 12px 20px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-trailer:hover {
+  background-color: #1f1f1f;
+  border-color: #555;
+}
+
+/* Details Grid */
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.detail-card {
+  background-color: #1f1f1f;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.detail-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.detail-card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+}
+
+.detail-card p {
+  font-size: 1.125rem;
+  color: white;
+}
+
+/* Related Movies Section */
+.related-movies {
+  background-color: #111;
+  padding: 3rem 0;
+  border-top: 1px solid #222;
+}
+
+.related-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.related-movies h2 {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Footer (same as index.html) */
+.custom-footer {
+  margin-top: auto;
+  width: 100%;
+  max-width: 1200px;
+  padding: 2.5rem 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #111;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .footer-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.brand-link {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  outline: none;
+}
+
+.nav-links {
+  text-align: center;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.nav-item {
+  display: inline-block;
+  position: relative;
+  padding-right: 2rem;
+}
+
+.nav-item:last-child {
+  padding-right: 0;
+}
+
+.nav-item:not(:last-child)::before {
+  content: "/";
+  position: absolute;
+  top: 50%;
+  right: 0.75rem;
+  transform: translateY(-50%);
+  color: #333;
+}
+
+.nav-link {
+  display: inline-flex;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #888;
+  text-decoration: none;
+  outline: none;
+}
+
+.nav-link:hover,
+.nav-link:focus {
+  color: #ddd;
+}
+
+.social-icons {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .social-icons {
+    justify-content: flex-end;
+  }
+}
+
+.social-icon {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  color: #888;
+  text-decoration: none;
+  outline: none;
+}
+
+.social-icon:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.social-icon:focus {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.social-icon svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: rgba(38, 38, 38, 0.9);
+    border-radius: 12px;
+    margin-top: 10px;
+    padding: 10px;
+  }
+
+  .nav-menu.active {
+    display: flex;
+  }
+
+  .nav-menu a {
+    padding: 12px;
+    border-radius: 6px;
+    margin: 4px 0;
+  }
+
+  .btn-login,
+  .btn-register {
+    width: 100%;
+    text-align: center;
+    margin: 4px 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .movie-title {
+    font-size: 1.75rem;
+  }
+
+  .movie-actions {
+    flex-direction: column;
+  }
+
+  .btn-watch,
+  .btn-trailer {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+}
